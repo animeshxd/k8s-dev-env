@@ -108,10 +108,13 @@ Vagrant.configure("2") do |config|
     sudo apt-get update
 
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    usermod -aG docker vagrant
+
     cd /tmp
     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
     sudo apt-get install -y ./minikube_latest_amd64.deb
 
-
+    minikube completion bash | tee /etc/bash_completion.d/minikube
+    #echo "source /etc/bash_completion.d/minikube" | tee -a /home/vagrant/.profile
   SHELL
 end
