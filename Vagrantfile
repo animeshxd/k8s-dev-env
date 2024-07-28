@@ -115,6 +115,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y ./minikube_latest_amd64.deb
 
     minikube completion bash | tee /etc/bash_completion.d/minikube
+    kubectl completion bash | tee /etc/bash_completion.d/kubectl
     #echo "source /etc/bash_completion.d/minikube" | tee -a /home/vagrant/.profile
   SHELL
 end
